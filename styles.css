@@ -8,6 +8,9 @@ body {
     background-color: cornsilk;
 }
 
+li{
+    margin:10px;
+}
 .block {
     text-align: center;
     color: black;
