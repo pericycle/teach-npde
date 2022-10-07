@@ -19,6 +19,13 @@ body {
     font-family: Raleway, Arial, Helvetica, sans-serif;
 }
 
+.header-images{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 @media only screen and (min-width: 768px) {
     .class-info-head {
         padding-left: 40%;
