@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -199,7 +205,7 @@
                 <td>5</td>
                 <td>October 19</td>
                 <td> parabolic PDEs in 1D,<br>
-                    Fourier analysis of the error
+                    the \(\theta\)-method, Crank-Nicolson
                 </td>
                <td> <a href="hw1.pdf">Assignment 1 due 29 October</a> </td>
                 <td>
@@ -215,7 +221,7 @@
                 <td>6</td>
                 <td>October 21</td>
                 <td> parabolic PDEs in 2 and 3D, <br>
-                    Alternating Directions Implicit Method in 2D, Douglas-Rachford scheme
+                    ADI Method in 2D, Douglas-Rachford, Peaceman-Rachford schemes
                 </td>
                 <td> </td>
                 <td>
