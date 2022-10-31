@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <pre>
+      <code>
+'''
+Code for the fully implicit scheme for solving the one-dimensional
+heat equation on a unit interval [0, 1]
+
+by Shelvean Kapita October 2022
+
+'''
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.sparse import diags
+from scipy.sparse.linalg import spsolve
+
+# initial data v0
+def v0(x):
+    return 6/np.cosh(20*(x-0.5))
+
+J = 31 # number of grid points
+h = 1/(J-1) # width of each interval (equally spaced)
+x = np.linspace(0,1,J) # grid ooints
+mu = 0.52
+k = mu*h**2 # times spacing
+T = 0.08 # final time
+tsteps = int(np.floor(T/k)); # number of time steps
+
+v = v0(x) # evaluate initial data on grid points
+v1 = np.zeros((v.size,))
+d1 = (1+2*mu)*np.ones((v.size-2,)) # main diagonal
+d2 = -mu*np.ones((v.size-3,)) # sub and super diagonal
+diagonals = [d1,d2,d2]
+A = diags(diagonals,[0,-1,1]).tocsr() # tridiagonal matrix
+b = v[1:J-1] # right hand side of initial data
+
+for j in range(tsteps):
+    w = spsolve(A,b) # solve for next time level
+    v1[1:J-1]= w # current values (interior nodes)
+    v1[0], v1[J-1]=0, 0 # set boundary nodes
+    b = w # adjust right hand side for next iteration
+    plt.plot(x,v1,linewidth='3') # plot current solution
+    plt.ylim(-0.5, 6.5) # limits of the y-axis (fix the grid)
+    plt.show() 
+    j=+1
+      </code>
+      </pre>
+  </body>
+</html>
