@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <pre>
+      <code>
+'''
+Python code for solving the one dimensional heat equation on a 
+unit interval [0, 1] using an explicit finite difference scheme.
+
+by Shelvean Kapita, October 2022.
+
+'''
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# initial data
+def v0(x):
+    return 6/np.cosh(20*(x-0.5))
+
+J = 31 # number of grid points
+h = 1/(J-1) # grid spacing (uniform)
+x = np.linspace(0,1,J) # grid points
+mu = 0.45 
+k = mu*h**2 # time spacing
+T = 0.05 # final time
+tsteps = int(np.floor(T/k)); # number of time steps
+
+v = v0(x) # evaluate initial data function at grid points
+v1 = np.zeros((v.shape))
+
+for j in range(tsteps):
+    v1[1:J-1] = v[1:J-1] + mu*(v[2:J]-2*v[1:J-1]+v[0:J-2])
+    v1[0], v1[J-1] = 0, 0 # boundary data points (Dirichlet)
+    plt.plot(x,v1,linewidth='3') # plot data
+    plt.ylim(-1.5, 6.5)
+    plt.show()
+    v = v1
+    j=+1
+
+
+    
+
+
+      </code>
+      </pre>
+  </body>
+</html>
